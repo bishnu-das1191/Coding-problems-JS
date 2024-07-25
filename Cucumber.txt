@@ -1,0 +1,7 @@
+================================================================================
+                Cucumber Interview Questions
+================================================================================
+
+How do you share state between steps in Cucumber?
+- Using pico container , create a Context class and have setter and getter methods,
+  use Maps as instance variable.
