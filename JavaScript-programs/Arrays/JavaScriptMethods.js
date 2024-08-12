@@ -1,5 +1,7 @@
 const nums = [-8, -3, 1, 3, 7]; 
-console.log(nums.filter(i => i>0)); // o/p : [ 1, 3, 7 ]
+
+const filterOut = nums.filter(i => i>0);
+console.log(filterOut); // o/p : [ 1, 3, 7 ]
 
 let squ = nums.map(a => a*a); 
 console.log(squ);  // o/p :  [ 64, 9, 1, 9, 49 ]
