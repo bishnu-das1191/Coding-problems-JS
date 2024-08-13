@@ -5,3 +5,9 @@
 How do you share state between steps in Cucumber?
 - Using pico container , create a Context class and have setter and getter methods,
   use Maps as instance variable.
+- Create a Dependency class
+- Add methods to save state of steps using map.
+- Inject the dependencies to stepdefs: create a parameterized constructor of each step defs
+    and pass above dependency class as an argument.
+- Atlast use the dependency class to save the state in one step def class and use it everywhere.
+
