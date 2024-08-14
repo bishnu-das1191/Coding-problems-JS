@@ -1,1 +1,9 @@
-Write a xpath to select a mousehover dropdown value.
+Q. Write a xpath to select a mousehover dropdown value.
+Q. Mention the list of items to be in place before proceeding with Regression Test Plan.
+- Test Cases
+Test Environment: Identify the hardware and software configurations required to run the regression tests, including the version of the app being tested, OS, database, and any other dependencies.
+Test Data: 
+Test Execution:
+Risk Analysis: Identify the risks associated with the regression testing and establish a mitigation plan to manage these risks.
+Test Sign-off: Define the criteria for test sign-off and approval, including the metrics and results needed to consider the regression testing successful.
+Documentation: Prepare the necessary documentation, including test cases, test data, results, and defect reports.

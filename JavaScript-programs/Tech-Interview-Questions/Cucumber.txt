@@ -1,13 +1,43 @@
 ================================================================================
-                Cucumber Interview Questions
+                Cucumber and TestNG Interview Questions
 ================================================================================
 
-How do you share state between steps in Cucumber?
+Q.How do you share state between steps in Cucumber?
 - Using pico container , create a Context class and have setter and getter methods,
   use Maps as instance variable.
 - Create a Dependency class
 - Add methods to save state of steps using map.
-- Inject the dependencies to stepdefs: create a parameterized constructor of each step defs
+- Inject the dependencies to all stepdefs: create a parameterized constructor in each step defs
     and pass above dependency class as an argument.
 - Atlast use the dependency class to save the state in one step def class and use it everywhere.
+
+
+Q.How to run tests in parallel ? [this approach is using cucumber with junit]
+- This approach will execute feature file in parallel.
+- make sure we have maven surefire plugin in pom.xml
+- and under the configurations tag we need to write 
+<includes>*TestRunnerPath.java</includes>
+<parallel>methods</parallel>
+<threadCount>2</threadCount>
+- then create a new folder and create a new feature file which needs to be executed in parallel.
+- now in Runner file : update the CucumberOptions file with feature file path and comment the tags if mentioned.
+- and note that if framework is using singleton design pattern then we have to convert the driver instance to ThreadLocal<WebDriver> driver = new ThreadLocal<>() so that each thead will have its own single instance.
+- then finally run using command 'mvn test'
+
+Q. Write a sample TestNG Test case with DataProvider.
+- @Test(dataProvider = "sample")
+public void testing(String username, String pswd){	
+}
+@DataProvider(name="sample")
+public Object[][] testdata(){
+	return new Object[][]{
+			{"user1","pwd1"},
+			{"user2","pwd2"},
+			{"user3","pwd3"}
+	}
+} 
+
+
+
+
 

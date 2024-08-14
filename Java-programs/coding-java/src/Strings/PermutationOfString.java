@@ -7,7 +7,7 @@ public class PermutationOfString {
          * 
         */
 
-        String str = "bishnu";
+        String str = "bis";
 
         printAllPermutaion(str,"");
     }
