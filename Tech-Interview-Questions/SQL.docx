@@ -1,0 +1,91 @@
+SDET SQL Interview Questions :
+
+Q. Print duplicate employees from an emp table.
+A - select empname, count(empname) as empname from emp group by empname having count(empname) > 1;
+
+Q. What are constraints and their types.
+A - NOT NULL - Ensures that a column cannot have a NULL value.
+    UNIQUE - Ensures that all the values in a column are different.
+    PRIMARY KEY - A combination of NOT NULL and UNIQUE. Uniquely identifies each row in a table.
+    FOREIGN KEY - Prevents actions that would destroy links between tables.
+    CHECK - Ensures the values in a column satisfies a specific condition.
+    DEFAULT - Set a Default value for a column if no value is specified.
+
+Q. Explain different types of SQL commands.
+A - DDL : Create, Alter, Drop, Truncate, Rename.
+    DML : Select, Insert, Update, Delete.
+    DCL : Grant, Revoke
+    TCL : Commit, Roll Back, Save point
+    Constraints : Primary Key, Foreign Key, Check, Unique, Not Null, Default
+
+Q. Differentiate DELETE vs DROP vs TRUNCATE
+A - DELETE : remove rows from a table.
+    DROP : removes a table from the database.
+    TRUNCATE : removes all rows from a table. (It is also a permanent delete, cannot roll back)
+
+Q. How to do pattern matching and getting the details in sql.
+A - Select empname where empname LIKE 'a%'; - empname starts with 'a'.
+    LIKE '%a'; - empname ends with 'a'.
+    LIKE '%a%'; - empname should have 'a' anywhere in name.
+    LIKE '_a%'; - first letter is anything but 2nd letter should be 'a'.
+    LIKE 'a_%'; - first letter should be 'a' and length should be 2 atleast and rest anything.
+    LIKE 'a%y'; - 1st letter should be 'a' and last letter should be 'y' and in between anything.
+
+Q. Find the 2nd Highest Salary from emp table.
+A - Select name, MAX(salary) as salary from emp where salary <> (Select MAX(salary) from emp);
+
+Q. What are Triggers
+A - A Trigger is a special type of stored procedure that automatically runs when an event occurs in the database server.
+
+
+Q. What are the ACID properties?
+A - Atomicity, Consistency, Isolation, Durability
+
+Q. UNION and UNION ALL
+A - The main difference is UNION removes duplicate rows, while UNION ALL retains all rows including duplicates.
+
+JOIN = Cross Product + some condition on records
+
+NATURAL JOIN : [ This is a Natural Join, in which at least one column is the same in both tables and we want to compare 1 record of one table with all records of another table and return the matched rows. Refer - Lec-39: Natural Join operation with Example | Database Management System].
+
+Q. Find the emp names who are working in any department.
+A - Select empname from emp, dept where emp.emp_no = dept.emp_no; 
+
+
+SELF JOIN : Joining the table with itself.[create a copy of the same table t1 and t2 ]
+
+Q. Find Student id who is enrolled in at least 2 courses. [1 Table containing s_id, c_id, since]
+[Explanation : solved using SELF JOIN -Lec-40: Self Join operation with Example | Database Management System]
+A - Select t1.s_id from emp where t1.s_id = t2.s_id and t1.c_id <> t2.c_id;
+
+EQUI JOIN : This JOIN  allows us to combine data from two or more database tables based on a common column between them. This type of join uses the equals operator (=) in the WHERE clause to match the values in the columns
+
+Q. Find the names of employees who work in a department having location same as their address. 
+[ Lec-41: Equi Join operation with Example | Database Management System]
+A - Select empname from emp, dept where emp.emp_id = dept.emp_id and emp.address = dept.location;
+
+
+
+
+
+
+LEFT OUTER JOIN : It gives matching rows and the rows in the left table but not in the right table. [ Left Outer join =  Natual join + left table data ]
+Lec-42: Left Outer Join operation with Example | Database Management System
+
+Q. Print emp_no, emp_name, dept_name, location from emp and dept table.
+A - Select emp_no, emp_name, dept_name, location from emp Left outer join dept ON (emp.depId = dept.deptId); 
+
+Note : since we kept ‘emp’ table on the left side of ‘left Outer join’ text , all records of emp table will be printed even though deptId does not match.   
+
+
+RIGHT OUTER JOIN: It gives matching rows and the rows which are in the right table but not in the left table.  [ Left Outer join =  Natual join + left table data ]
+Lec-43: Right Outer Join operation with Example | Database Management System
+
+Q. Print emp_no, emp_name, dept_name, location from emp and dept table.
+A- Select emp_no, emp-name, dept_name, loc from emp Right Outer Join dept ON (emp.deptId = dept.deptId);
+
+FULL OUTER JOIN : It gives matching rows and all the rows from both the tables eventhough they do not match.
+
+Q. Print emp_no, emp_name, dept_name, location from emp and dept table using Full outer join.
+A -  Select emp_no, emp_name, dept_name, loc from emp FULL OUTER JOIN dept ON (emp.deptId = dept.deptId);
+
