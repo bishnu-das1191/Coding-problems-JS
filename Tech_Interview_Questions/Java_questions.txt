@@ -1,0 +1,56 @@
+
+========================================================================
+                            Java Questions
+========================================================================
+
+Q. Write a program to Sort Person or Student Objects based on their age or marks. [Use Comparator]
+A- 
+        import java.util.Collections;
+        import java.util.List;
+        import java.util.ArrayList;
+
+        public class Main {
+            public static void main(String[] args) {
+                List<Person> people = new ArrayList<>();
+                people.add(new Person("Alice", 25));
+                people.add(new Person("Bob", 30));
+                people.add(new Person("Charlie", 20));
+                
+                Collections.sort(people, new PersonComparator());
+                
+                System.out.println("Sorted List: " + people);
+                //output: Sorted List: [Charlie (20), Alice (25), Bob (30)]
+            }
+        }
+
+        class Person {
+            private String name;
+            private int age;
+            
+            public Person(String name, int age) {
+                this.name = name;
+                this.age = age;
+            }
+            
+            public String getName() {
+                return name;
+            }
+            
+            public int getAge() {
+                return age;
+            }
+            
+            @Override
+            public String toString() {
+                return name + " (" + age + ")";
+            }
+        }
+
+        class PersonComparator implements java.util.Comparator<Person> {
+            @Override
+            public int compare(Person a, Person b) {
+                return a.getAge() - b.getAge();
+            }
+        }
+
+Q.
