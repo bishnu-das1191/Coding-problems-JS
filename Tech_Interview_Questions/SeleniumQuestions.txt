@@ -20,3 +20,18 @@ JavaScriptExecutor(I) <- RemoteWebDriver(C) [Fully Implemented Class] -> TakeScr
                               |extends
                               |
         ChromeDriver(C)  FirefoxDriver(C) EgdeDriver(C) SafariDriver(C)
+
+
+Q. The following methods are useful to handle alerts in Selenium:
+
+1. Void dismiss(): This method is used when the ‘Cancel’ button is clicked in the alert box.
+driver.switchTo().alert().dismiss();
+
+2. Void accept(): This method is used to click on the ‘OK’ button of the alert.
+driver.switchTo().alert().accept();
+
+3. String getText(): This method is used to capture the alert message.
+driver.switchTo().alert().getText();
+
+4. Void sendKeys(String stringToSend): This method is used to send data to the alert box.
+driver.switchTo().alert().sendKeys("Text");
