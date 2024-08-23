@@ -1,7 +1,5 @@
 package Strings;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class StringCompression {
     public static void main(String[] args) {

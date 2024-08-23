@@ -6,7 +6,7 @@ public class FrequencyOfEleWithoutMap {
 
     public static void main(String[] args) {
     /**
-     * Find the frequency of elements without using sort and Map methods.
+     * Find the frequency of elements without using Arrays.sort and Map methods.
      * 
      */
 

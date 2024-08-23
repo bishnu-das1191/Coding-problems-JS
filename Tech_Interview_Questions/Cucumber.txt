@@ -12,6 +12,33 @@ Q.How do you share state between steps in Cucumber?
 - Atlast use the dependency class to save the state in one step def class and use it everywhere.
 
 
+Q.How to run tests in parallel ? [this approach is using cucumber with testng]
+- In cucumberOptions write 'publish = true'.[generate report on cucumber cloud]
+- Extends the TestRunner class with AbstractTestNGCucumberTests
+- And in TestRunner class @Override scenario method like below : 
+   
+   @Override
+   @DataProvider(parallel = true)
+   public Object[][] scenarios(){
+		return super.scenarios();
+   }
+
+- create a testng.xml file under resources folder
+- In xml file mention parallel = "classess" thread-count = "5", like below :
+
+<suite name="Open cart" verbose="2" parallel="classes" thread-count="5">
+	<test name = "Login Test">
+	 	<classes>
+			<class name = "runner.TestRunner"/>
+		</classes>
+	</test>
+</suite>
+
+- also last step we need to add maven surefire plugin in pom.xml file.
+- Under configuration tag mention the path of testng.xml file path.
+- now we can run using pom.xml or using maven commands.
+
+
 Q.How to run tests in parallel ? [this approach is using cucumber with junit]
 - This approach will execute feature file in parallel.
 - make sure we have maven surefire plugin in pom.xml
