@@ -9,7 +9,7 @@ public class PrintRepeatedEleWithoutMap {
          * Without using Arrays Sort and Map
          */
 
-        int[] arr = {5, 2, 9, 1, 7, 2, 7, 7};
+        int[] arr = {5, 2, 9, 1, 7, 2, 2, 7, 7, 7, 7};
 
         boolean[] visited = new boolean[arr.length];
         Arrays.fill(visited, false);
@@ -18,13 +18,15 @@ public class PrintRepeatedEleWithoutMap {
 
             if(visited[i]) continue;
 
+            int count = 1;
             for (int j = i+1; j <arr.length ; j++) {
                 if(arr[i] == arr[j]){
                     visited[j] = true;
-                    System.out.println(arr[i]);
-                    break;
+                    count ++;
                 }
             }
+            
+            if(count > 1) System.out.println(arr[i]);
         }
     }
 }

@@ -10,6 +10,7 @@ public class RemoveAllWhiteSpace {
         String str = "   bishnu   das   ";
         System.out.println(str.replaceAll("\\s", "")); //bishnudas
 
+        //another approach
         String str2 = "   bishnu   das   ";
         String result = "";
         for (int i = 0; i < str2.length(); i++) {
