@@ -7,7 +7,7 @@ public class PermutationOfString {
          * 
         */
 
-        String str = "bis";
+        String str = "abc";
 
         printAllPermutaion(str,"");
     }

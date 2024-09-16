@@ -10,7 +10,7 @@ public class PrintRepeatedEleWithoutMap {
          */
 
         int[] arr = {5, 2, 9, 1, 7, 2, 2, 7, 7, 7, 7};
-
+        
         boolean[] visited = new boolean[arr.length];
         Arrays.fill(visited, false);
 
